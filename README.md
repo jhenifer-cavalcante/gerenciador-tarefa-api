@@ -10,7 +10,7 @@ CREATE SCHEMA gerenciador-tarefa
 
 ## 2º passo: Criar e modificar o arquivo .env
 
-- .env:
+- .env: *Na pasta principal*
 ```bash
 TZ=UTC
 PORT=3333
@@ -26,8 +26,9 @@ DB_USER=postgres
 DB_PASSWORD=sua-senha
 DB_DATABASE=gerenciador-tarefa
 ```
-
+-----------------------------------------------------------------------------------------------
 ### *ATENÇÃO: precisa ter o Node versão 20.6 ou maior para os comandos abaixo funcionarem*.
+-----------------------------------------------------------------------------------------------
 ## 3º passo: Baixar bibliotecas do nodeJS
 
 ```typescript
