@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.string('nome', 255).notNullable().unique();
       table.time('duracao').notNullable();
       table.boolean('ativo').defaultTo(true);
-      table.integer('criado_por').unsigned().references('cpf').inTable('usuario');
+      table.bigInteger('criado_por').unsigned().references('cpf').inTable('usuario');
       table.timestamp('criado_em', { useTz: false }).notNullable().defaultTo(this.now());
     })
   }

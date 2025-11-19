@@ -6,7 +6,7 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.integer('cpf').primary().notNullable().unique()
+      table.bigInteger('cpf').primary().notNullable().unique()
       table.string('p_nome', 150).nullable()
       table.string('s_nome', 150).nullable()
       table.string('email').notNullable().unique()

@@ -19,9 +19,9 @@ export default class extends BaseSchema {
       table.integer('num_categoria').unsigned().references('numero').inTable('categoria').notNullable();
       table.integer('num_recompensa').unsigned().references('numero').inTable('recompensa').onDelete('SET NULL');
       table.boolean('ativo').defaultTo(true);
-      table.integer('criado_por').unsigned().references('cpf').inTable('usuario').notNullable();
+      table.bigInteger('criado_por').unsigned().references('cpf').inTable('usuario').notNullable();
       table.timestamp('criado_em', { useTz: false }).notNullable().defaultTo(this.now());
-      table.integer('atualizado_por').unsigned().references('cpf').inTable('usuario');
+      table.bigInteger('atualizado_por').unsigned().references('cpf').inTable('usuario');
       table.timestamp('atualizado_em', { useTz: false});
     })
   }

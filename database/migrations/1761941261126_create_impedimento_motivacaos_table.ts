@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.integer('num_motivacao').unsigned().references('numero').inTable('motivacao').notNullable().onDelete('CASCADE');
       table.integer('num_impedimento').unsigned().references('numero').inTable('impedimento').notNullable().onDelete('CASCADE');
       table.boolean('ativo').defaultTo(true);
-      table.integer('criado_por').unsigned().references('cpf').inTable('usuario');
+      table.bigInteger('criado_por').unsigned().references('cpf').inTable('usuario');
       table.timestamp('criado_em', { useTz: false }).notNullable().defaultTo(this.now());
     })
   }
