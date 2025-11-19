@@ -2,7 +2,7 @@
 
 ## 1º passo: Criar o banco de dados
 
-### No postgreSQL crie o banco com o seguinte nome:
+### No postgreSQL, crie o banco com o seguinte nome:
 
 ```sql
 CREATE SCHEMA gerenciador-tarefa
@@ -27,14 +27,14 @@ DB_PASSWORD=sua-senha
 DB_DATABASE=gerenciador-tarefa
 ```
 -----------------------------------------------------------------------------------------------
-### *ATENÇÃO: precisa ter o Node versão 20.6 ou maior para os comandos abaixo funcionarem*.
+### *ATENÇÃO: precisa ter instalado o Node versão 20.6 ou maior para os comandos abaixo funcionarem*.
 -----------------------------------------------------------------------------------------------
 ## 3º passo: Baixar bibliotecas do nodeJS
 
 ```typescript
 npm install // adicione a tag --force, se necessário
 ```
-## 4º passo: Executar as migrations e seeds
+## 4º passo: Executar as migrations e seeds sequencialmente
 
 ```typescript
 node ace migration:run
