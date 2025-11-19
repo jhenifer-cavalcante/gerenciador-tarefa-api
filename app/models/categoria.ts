@@ -1,4 +1,4 @@
-import { DateTime } from '../../node_modules/@types/luxon/index.js'
+import { DateTime } from 'luxon'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import Tag from './tag.js';
 import type { HasMany } from '@adonisjs/lucid/types/relations';
@@ -8,7 +8,7 @@ export default class Categoria extends BaseModel {
   static table = 'categoria';
   
   @column({ isPrimary: true })
-  declare cpf: number
+  declare numero: number
 
   @column()
   declare titulo: string

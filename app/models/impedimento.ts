@@ -1,5 +1,5 @@
 import { Nivel } from '../../contracts/enum/nivel.js';
-import { DateTime } from '../../node_modules/@types/luxon/index.js'
+import { DateTime } from 'luxon'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import ImpedimentoMotivacao from './impedimento_motivacao.js';
 import type { HasMany } from '@adonisjs/lucid/types/relations';

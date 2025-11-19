@@ -1,4 +1,4 @@
-import { DateTime } from '../../node_modules/@types/luxon/index.js'
+import { DateTime } from 'luxon'
 import { BaseModel, column, hasMany} from '@adonisjs/lucid/orm'
 import Tarefa from './tarefa.js';
 import type { HasMany } from '@adonisjs/lucid/types/relations';
@@ -10,7 +10,7 @@ export default class Recompensa extends BaseModel {
   declare numero: number
 
   @column()
-  declare titulo: string
+  declare nome: string
 
   @column()
   declare descricao: string
