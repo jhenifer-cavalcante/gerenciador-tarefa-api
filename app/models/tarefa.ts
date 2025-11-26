@@ -4,7 +4,6 @@ import type { HasMany, HasOne } from '@adonisjs/lucid/types/relations';
 import Categoria from './categoria.js';
 import { Status } from '../../contracts/enum/status.js';
 import { Frequencia } from '../../contracts/enum/frequencia.js';
-import { Nivel } from '../../contracts/enum/nivel.js';
 import Recompensa from './recompensa.js';
 import SubTarefa from './sub_tarefa.js';
 import TarefaTag from './tarefa_tag.js';
@@ -31,10 +30,10 @@ export default class Tarefa extends BaseModel {
   declare frequencia: Frequencia
 
   @column()
-  declare nivel_energia_fisica: Nivel
+  declare nivel_energia_fisica: string
 
   @column()
-  declare nivel_energia_mental: Nivel
+  declare nivel_energia_mental: string
 
   @column()
   declare num_categoria: number
