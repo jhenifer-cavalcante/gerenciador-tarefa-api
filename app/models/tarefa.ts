@@ -7,6 +7,8 @@ import { Frequencia } from '../../contracts/enum/frequencia.js';
 import Recompensa from './recompensa.js';
 import SubTarefa from './sub_tarefa.js';
 import TarefaTag from './tarefa_tag.js';
+import { ModelObject } from '@adonisjs/lucid/types/model';
+// import { Nivel } from '../../contracts/enum/nivel.js';
 
 export default class Tarefa extends BaseModel {
   static table = 'tarefa';
@@ -27,13 +29,13 @@ export default class Tarefa extends BaseModel {
   declare prazo: string
 
   @column()
-  declare frequencia: Frequencia
+  declare frequencia: string
 
   @column()
-  declare nivel_energia_fisica: string
+  declare nivel_energia_fisica: number
 
   @column()
-  declare nivel_energia_mental: string
+  declare nivel_energia_mental: number
 
   @column()
   declare num_categoria: number
@@ -72,11 +74,27 @@ export default class Tarefa extends BaseModel {
     localKey: 'numero',
     foreignKey: 'num_tarefa'
   })
-  declare sub_tarefa: HasMany<typeof SubTarefa>
+  declare sub_tarefas: HasMany<typeof SubTarefa>
 
   @hasMany(()=> TarefaTag,{
     localKey: 'numero',
     foreignKey: 'num_tarefa'
   })
   declare tarefa_tag: HasMany<typeof TarefaTag>
+
+  toJSON(): ModelObject {
+    return{
+      numero: this.numero,
+      titulo: this.titulo,
+      status: Status[this.status],
+      descricao: this.descricao,
+      prazo: this.prazo,
+      frequencia: this.frequencia,
+      nivelEnergiaFisica: this.nivel_energia_fisica,
+      nivelEnergiaMental: this.nivel_energia_mental,
+      num_categoria: this.num_categoria,
+      num_recompensa: this.num_recompensa,
+      ativo: this.ativo
+    }
+  }
 }

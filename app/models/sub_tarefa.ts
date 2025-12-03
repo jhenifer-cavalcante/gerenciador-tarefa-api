@@ -1,11 +1,13 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
 import type { HasOne } from '@adonisjs/lucid/types/relations';
-import { Status } from '../../contracts/enum/status.js';
+// import { Status } from '../../contracts/enum/status.js';
 import { Frequencia } from '../../contracts/enum/frequencia.js';
 import { Nivel } from '../../contracts/enum/nivel.js';
 import Tarefa from './tarefa.js';
 import Motivacao from './motivacao.js';
+import { Status } from '../../contracts/enum/status.js';
+import { ModelObject } from '@adonisjs/lucid/types/model';
 
 export default class SubTarefa extends BaseModel {
   static table = 'sub_tarefa';
@@ -29,10 +31,10 @@ export default class SubTarefa extends BaseModel {
   declare frequencia: Frequencia
 
   @column()
-  declare nivel_energia_fisica: Nivel
+  declare nivel_energia_fisica: number
 
   @column()
-  declare nivel_energia_mental: Nivel
+  declare nivel_energia_mental: number
 
   @column()
   declare num_tarefa: number
@@ -66,4 +68,20 @@ export default class SubTarefa extends BaseModel {
     localKey: 'num_motivacao'
   })
   declare motivacao: HasOne<typeof Motivacao>
+
+  toJSON(): ModelObject {
+    return{
+      numero: this.numero,
+      titulo: this.titulo,
+      status: Status[this.status],
+      descricao: this.descricao,
+      ordem: this.ordem,
+      frequencia: Frequencia[this.frequencia],
+      nivelEnergiaFisica: Nivel[this.nivel_energia_fisica],
+      nivelEnergiaMental: Nivel[this.nivel_energia_mental],
+      num_tarefa: this.num_tarefa,
+      num_motivacao: this.num_motivacao,
+      ativo: this.ativo
+    }
+  }
 }
